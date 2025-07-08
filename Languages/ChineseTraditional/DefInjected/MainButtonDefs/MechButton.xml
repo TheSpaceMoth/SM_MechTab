@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LanguageData>
+	<SM_MechWork.label>機械體工作</SM_MechWork.label>
+	<SM_MechWork.description>指定殖民地機械體進行何種工作，以及各種工作的優先順序。</SM_MechWork.description>
+</LanguageData>

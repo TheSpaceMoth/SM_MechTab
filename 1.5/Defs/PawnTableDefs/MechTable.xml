@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnTableDef>
+    <defName>SM_PawnTable_MechsWork</defName>
+    <workerClass>SpaceMoth.SM_PawnTable_MechsWork</workerClass>
+    <columns>
+      <li>LabelWithIcon</li>
+      <li>Overseer</li>
+      <li>WorkMode</li>
+      <li>GapTiny</li>
+      <li>CopyPasteWorkPriorities</li>
+      <li>RemainingSpace</li>
+    </columns>
+  </PawnTableDef>
+    
+</Defs>

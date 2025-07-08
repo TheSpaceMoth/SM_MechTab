@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <MainButtonDef>
+    <defName>SM_MechWork</defName>
+    <label>mech work</label>
+    <description>View and organize the work prioraties of the colony's mechanoids.</description>
+    <workerClass>SpaceMoth.SM_MainButtonWorker_ToggleMechWorkTab</workerClass>
+    <tabWindowClass>SpaceMoth.SM_MainTabWindow_MechsWork</tabWindowClass>
+    <order>46</order>
+    <closesWorldView>true</closesWorldView>
+  </MainButtonDef>
+  
+</Defs>

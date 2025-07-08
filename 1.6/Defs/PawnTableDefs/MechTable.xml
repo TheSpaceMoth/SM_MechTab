@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnColumnDef Name="SM_MechLabelWithIcon" ParentName="Label">
+    <defName>SM_MechLabelWithIcon</defName>
+	<workerClass>SpaceMoth.SM_PawnColumnWorker_MechLabelWithIcon_Sortable</workerClass>	
+    <showIcon>true</showIcon>
+    <sortable>true</sortable>
+  </PawnColumnDef>
+  
+  <PawnTableDef>
+    <defName>SM_PawnTable_MechsWork</defName>
+    <workerClass>SpaceMoth.SM_PawnTable_MechsWork</workerClass>
+    <columns>
+      <li>SM_MechLabelWithIcon</li>
+      <li>Overseer</li>
+      <li>WorkMode</li>
+      <li>GapTiny</li>
+      <li>CopyPasteWorkPriorities</li>
+      <li>RemainingSpace</li>
+    </columns>
+  </PawnTableDef>
+    
+  <PawnTableDef>
+    <defName>SM_PawnTable_MechsWorkSlim</defName>
+    <workerClass>SpaceMoth.SM_PawnTable_MechsWork</workerClass>
+    <columns>
+      <li>SM_MechLabelWithIcon</li>
+      <li>GapTiny</li>
+      <li>CopyPasteWorkPriorities</li>
+      <li>RemainingSpace</li>
+    </columns>
+  </PawnTableDef>
+</Defs>

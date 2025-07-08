@@ -1,0 +1,85 @@
+﻿using MechTab.Source;
+using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
+
+namespace SpaceMoth
+{
+	// Note: This code is based off of the code in MainTabWindow_MechsWork within Rimworld itself
+	public class SM_MainTabWindow_MechsWork : MainTabWindow_PawnTable
+	{
+		private const int SpaceBetweenPriorityArrowsAndWorkLabels = 40;
+		private List<Color> cachedColors = new List<Color>();
+		private const int SetColorButtonHeight = 32;
+		private const int SetColorButtonWidth = 240;
+		protected override float ExtraTopSpace => 40f;
+
+		protected override PawnTableDef PawnTableDef => (MechTabModSettings.showGroupInfo == true)?DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWork"): DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWorkSlim");
+
+		protected override IEnumerable<Pawn> Pawns => Find.CurrentMap.mapPawns.PawnsInFaction(Faction.OfPlayer).Where<Pawn>((Func<Pawn, bool>)(p => p.RaceProps.IsMechanoid && p.OverseerSubject != null));
+
+		public override void PostOpen()
+		{
+			base.PostOpen();
+			this.cachedColors = DefDatabase<ColorDef>.AllDefsListForReading.Select<ColorDef, Color>((Func<ColorDef, Color>)(c => c.color)).ToList<Color>();
+			this.cachedColors.AddRange(Find.FactionManager.AllFactionsVisible.Select<Faction, Color>((Func<Faction, Color>)(f => f.Color)));
+			this.cachedColors.SortByColor<Color>((Func<Color, Color>)(c => c));
+		}
+
+		public SM_MainTabWindow_MechsWork()
+		{
+			DefGenerator_GenerateImpliedDefs_MechsWork.Generate();
+		}
+
+		public override void DoWindowContents(Rect rect)
+		{
+			if (!ModLister.BiotechInstalled)
+				return;
+
+			base.DoWindowContents(rect);
+			
+			if (Event.current.type == EventType.Layout)
+				return;
+
+			this.DoManualPrioritiesCheckbox();
+
+			GUI.color = new Color(1f, 1f, 1f, 0.5f);
+			Text.Anchor = TextAnchor.UpperCenter;
+			Text.Font = GameFont.Tiny;
+			Widgets.Label(new Rect(570f, rect.y + 5f, 160f, 30f), "<= " + "HigherPriority".Translate());
+			Widgets.Label(new Rect(830f, rect.y + 5f, 160f, 30f), "LowerPriority".Translate() + " =>");
+			GUI.color = Color.white;
+			Text.Font = GameFont.Small;
+			Text.Anchor = TextAnchor.UpperLeft;
+		}
+		
+		private void DoManualPrioritiesCheckbox()
+		{
+			Text.Font = GameFont.Small;
+			GUI.color = Color.white;
+			Text.Anchor = TextAnchor.UpperLeft;
+			Rect rect = new Rect(5f, 5f, 140f, 30f);
+			int num1 = Current.Game.playSettings.useWorkPriorities ? 1 : 0;
+			Widgets.CheckboxLabeled(rect, (string)"ManualPriorities".Translate(), ref Current.Game.playSettings.useWorkPriorities);
+			int num2 = Current.Game.playSettings.useWorkPriorities ? 1 : 0;
+			if (num1 != num2)
+			{
+				foreach (Pawn pawn in Pawns)
+				{
+					pawn.workSettings.Notify_UseWorkPrioritiesChanged();
+				}
+			}
+			if (Current.Game.playSettings.useWorkPriorities)
+			{
+				using (new TextBlock(new Color(1f, 1f, 1f, 0.5f)))
+					Widgets.Label(new Rect(rect.x, rect.yMax - 6f, rect.width, 60f), "PriorityOneDoneFirst".Translate());
+			}
+			if (Current.Game.playSettings.useWorkPriorities)
+				return;
+			UIHighlighter.HighlightOpportunity(rect, "ManualPriorities-Off");
+		}
+	}
+}
