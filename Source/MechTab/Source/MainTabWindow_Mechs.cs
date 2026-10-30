@@ -12,26 +12,43 @@ namespace SpaceMoth
 	public class SM_MainTabWindow_MechsWork : MainTabWindow_PawnTable
 	{
 		private const int SpaceBetweenPriorityArrowsAndWorkLabels = 40;
-		private List<Color> cachedColors = new List<Color>();
-		private const int SetColorButtonHeight = 32;
-		private const int SetColorButtonWidth = 240;
 		protected override float ExtraTopSpace => 40f;
 
 		protected override PawnTableDef PawnTableDef => (MechTabModSettings.showGroupInfo == true)?DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWork"): DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWorkSlim");
 
-		protected override IEnumerable<Pawn> Pawns => Find.CurrentMap.mapPawns.PawnsInFaction(Faction.OfPlayer).Where<Pawn>((Func<Pawn, bool>)(p => p.RaceProps.IsMechanoid && p.OverseerSubject != null));
+		protected override IEnumerable<Pawn> Pawns => Find.CurrentMap.mapPawns.PawnsInFaction(Faction.OfPlayer).Where<Pawn>((Func<Pawn, bool>)(p => p.RaceProps.IsMechanoid && p.OverseerSubject != null && (MechTabModSettings.hideNonWorkingMechs == false || HasWorkColumn(p))));
 
-		public override void PostOpen()
+		// True if the mech can do at least one work type that has a column in this tab.
+		// Combat mechs (e.g. Lancer) have no work types; some modded mechs only have hidden ones.
+		private static bool HasWorkColumn(Pawn pawn)
 		{
-			base.PostOpen();
-			this.cachedColors = DefDatabase<ColorDef>.AllDefsListForReading.Select<ColorDef, Color>((Func<ColorDef, Color>)(c => c.color)).ToList<Color>();
-			this.cachedColors.AddRange(Find.FactionManager.AllFactionsVisible.Select<Faction, Color>((Func<Faction, Color>)(f => f.Color)));
-			this.cachedColors.SortByColor<Color>((Func<Color, Color>)(c => c));
+			List<WorkTypeDef> workTypes = pawn.RaceProps.mechEnabledWorkTypes;
+			if (workTypes == null)
+				return false;
+
+			for (int index = 0; index < workTypes.Count; ++index)
+			{
+				if (DefGenerator_GenerateImpliedDefs_MechsWork.ColumnWorkTypes.Contains(workTypes[index]))
+					return true;
+			}
+			return false;
 		}
 
 		public SM_MainTabWindow_MechsWork()
 		{
 			DefGenerator_GenerateImpliedDefs_MechsWork.Generate();
+		}
+
+		// Table def the current table was built from. The game keeps this window (and its table) for the whole session.
+		private PawnTableDef builtTableDef;
+
+		public override void PreOpen()
+		{
+			// "Show Group Columns" changed since the table was built: rebuild it with the other layout.
+			if (builtTableDef != null && builtTableDef != PawnTableDef)
+				Notify_ResolutionChanged();
+			builtTableDef = PawnTableDef;
+			base.PreOpen();
 		}
 
 		public override void DoWindowContents(Rect rect)
@@ -67,9 +84,11 @@ namespace SpaceMoth
 			int num2 = Current.Game.playSettings.useWorkPriorities ? 1 : 0;
 			if (num1 != num2)
 			{
-				foreach (Pawn pawn in Pawns)
+				// Same as vanilla: the setting is global, so notify every player pawn, not only the mechs listed in this tab.
+				foreach (Pawn pawn in PawnsFinder.AllMapsWorldAndTemporary_Alive)
 				{
-					pawn.workSettings.Notify_UseWorkPrioritiesChanged();
+					if (pawn.Faction == Faction.OfPlayer && pawn.workSettings != null)
+						pawn.workSettings.Notify_UseWorkPrioritiesChanged();
 				}
 			}
 			if (Current.Game.playSettings.useWorkPriorities)

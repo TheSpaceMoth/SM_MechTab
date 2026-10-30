@@ -11,6 +11,9 @@ namespace SpaceMoth
 	{
 		private static bool m_Generated = false;
 
+		// Work types that got a column in the mech work table.
+		public static HashSet<WorkTypeDef> ColumnWorkTypes = new HashSet<WorkTypeDef>();
+
 		public static void Generate()
 		{
 			if (m_Generated == false)
@@ -24,12 +27,14 @@ namespace SpaceMoth
 
 		private static IEnumerable<PawnColumnDef> ImpliedMechColumnDefs(bool hotReload)
 		{
-			PawnTableDef workTable = (MechTabModSettings.showGroupInfo == true) ? DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWork") : DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWorkSlim");
+			// Add the work columns to both table layouts: "Show Group Columns" can switch layouts later in the session.
+			PawnTableDef[] workTables = { DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWork"), DefDatabase<PawnTableDef>.GetNamed("SM_PawnTable_MechsWorkSlim") };
 			bool moveWorkTypeLabelDown = false;
 			foreach (WorkTypeDef workTypeDef in WorkTypeDefsUtility.WorkTypeDefsInPriorityOrder.Where<WorkTypeDef>((Func<WorkTypeDef, bool>)(d => d.visible)).Reverse<WorkTypeDef>())
 			{
 				if (CheckWorkTypeMechValid(workTypeDef) == true)
 				{
+					ColumnWorkTypes.Add(workTypeDef);
 					moveWorkTypeLabelDown = !moveWorkTypeLabelDown;
 					string defName = "MechWorkPriority_" + workTypeDef.defName;
 					PawnColumnDef pawnColumnDef = hotReload ? DefDatabase<PawnColumnDef>.GetNamed(defName, false) ?? new PawnColumnDef() : new PawnColumnDef();
@@ -39,7 +44,8 @@ namespace SpaceMoth
 					pawnColumnDef.workerClass = typeof(SM_PawnColumnWorker_WorkPriority);
 					pawnColumnDef.sortable = true;
 					pawnColumnDef.modContentPack = workTypeDef.modContentPack;
-					workTable.columns.Insert(workTable.columns.FindIndex((Predicate<PawnColumnDef>)(x => x.Worker is PawnColumnWorker_CopyPasteWorkPriorities)) + 1, pawnColumnDef);
+					foreach (PawnTableDef workTable in workTables)
+						workTable.columns.Insert(workTable.columns.FindIndex((Predicate<PawnColumnDef>)(x => x.Worker is PawnColumnWorker_CopyPasteWorkPriorities)) + 1, pawnColumnDef);
 					yield return pawnColumnDef;
 				}
 			}
