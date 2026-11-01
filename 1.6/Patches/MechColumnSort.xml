@@ -20,7 +20,7 @@
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/PawnColumnDef[defName = "Overseer"]/workerClass</xpath>
 		<value>
-			<workerClass>SpaceMoth.SM_PawnColumnWorker_Overseer_Sortable</workerClass>		
+			<workerClass>SM_MechTab.SM_PawnColumnWorker_Overseer_Sortable</workerClass>		
 		</value>
 	</Operation>
 	
@@ -43,7 +43,7 @@
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/PawnColumnDef[defName = "WorkMode"]/workerClass</xpath>
 		<value>
-			<workerClass>SpaceMoth.SM_PawnColumnWorker_WorkMode_Sortable</workerClass>		
+			<workerClass>SM_MechTab.SM_PawnColumnWorker_WorkMode_Sortable</workerClass>		
 		</value>
 	</Operation>
 	
@@ -66,7 +66,7 @@
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/PawnColumnDef[defName = "ControlGroup"]/workerClass</xpath>
 		<value>
-			<workerClass>SpaceMoth.SM_PawnColumnWorker_ControlGroup_Sortable</workerClass>		
+			<workerClass>SM_MechTab.SM_PawnColumnWorker_ControlGroup_Sortable</workerClass>		
 		</value>
 	</Operation>
 </Patch>

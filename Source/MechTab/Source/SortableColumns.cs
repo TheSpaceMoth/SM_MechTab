@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 
-namespace SpaceMoth
+namespace SM_MechTab
 {
 	public class SM_PawnColumnWorker_Overseer_Sortable : PawnColumnWorker_Overseer
 	{

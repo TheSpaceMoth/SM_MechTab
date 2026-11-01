@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
-namespace MechTab.Source
+namespace SM_MechTab
 {
 	[StaticConstructorOnStartup]
 	class ModSettingsHandler : Mod
@@ -48,32 +48,8 @@ namespace MechTab.Source
 
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
+			base.DoSettingsWindowContents(inRect);
 			MechTabModSettings.DoWindowContents(inRect);
-		}
-
-
-		public override void WriteSettings()
-		{
-			base.WriteSettings();
-			//m_Settings.Init();
-
-			try
-			{
-				/*
-				if (Find.CurrentMap != null)
-				{
-					OreOverlayGrid Overlay = Find.CurrentMap.GetComponent<OreOverlayGrid>();
-
-					if (Overlay != null)
-					{
-						Overlay.RefreshOreOverlayData(true); // Settings changed, force a refresh.
-					}
-				}*/
-			}
-			catch (Exception)
-			{
-
-			}
 		}
 	}
 }

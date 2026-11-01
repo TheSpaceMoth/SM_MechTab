@@ -1,5 +1,4 @@
-﻿using MechTab.Source;
-using RimWorld;
+﻿using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +7,7 @@ using Verse;
 using Verse.Sound;
 using Verse.Steam;
 
-namespace SpaceMoth
+namespace SM_MechTab
 {
 	// Note: This code is based off of the code in PawnColumnWorker_WorkPriority within Rimworld itself
 	public class SM_PawnColumnWorker_WorkPriority : PawnColumnWorker_WorkPriority

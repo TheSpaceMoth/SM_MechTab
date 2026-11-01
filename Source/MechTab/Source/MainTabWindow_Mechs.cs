@@ -1,12 +1,11 @@
-﻿using MechTab.Source;
-using RimWorld;
+﻿using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
 
-namespace SpaceMoth
+namespace SM_MechTab
 {
 	// Note: This code is based off of the code in MainTabWindow_MechsWork within Rimworld itself
 	public class SM_MainTabWindow_MechsWork : MainTabWindow_PawnTable

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MechTab.Source;
 using RimWorld;
 using Verse;
 
-namespace SpaceMoth
+namespace SM_MechTab
 {
 	public class DefGenerator_GenerateImpliedDefs_MechsWork
 	{

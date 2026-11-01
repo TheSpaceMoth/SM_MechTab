@@ -3,14 +3,14 @@
 
   <PawnColumnDef Name="SM_MechLabelWithIcon" ParentName="Label">
     <defName>SM_MechLabelWithIcon</defName>
-	<workerClass>SpaceMoth.SM_PawnColumnWorker_MechLabelWithIcon_Sortable</workerClass>	
+	<workerClass>SM_MechTab.SM_PawnColumnWorker_MechLabelWithIcon_Sortable</workerClass>	
     <showIcon>true</showIcon>
     <sortable>true</sortable>
   </PawnColumnDef>
   
   <PawnTableDef>
     <defName>SM_PawnTable_MechsWork</defName>
-    <workerClass>SpaceMoth.SM_PawnTable_MechsWork</workerClass>
+    <workerClass>SM_MechTab.SM_PawnTable_MechsWork</workerClass>
     <columns>
       <li>SM_MechLabelWithIcon</li>
       <li>Overseer</li>
@@ -23,7 +23,7 @@
     
   <PawnTableDef>
     <defName>SM_PawnTable_MechsWorkSlim</defName>
-    <workerClass>SpaceMoth.SM_PawnTable_MechsWork</workerClass>
+    <workerClass>SM_MechTab.SM_PawnTable_MechsWork</workerClass>
     <columns>
       <li>SM_MechLabelWithIcon</li>
       <li>GapTiny</li>

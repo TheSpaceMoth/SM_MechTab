@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
-namespace MechTab.Source
+namespace SM_MechTab
 {
 	public class MechTabModSettings : ModSettings
 	{
@@ -25,7 +25,7 @@ namespace MechTab.Source
 		{
 			Listing_Aligned options = new Listing_Aligned();
 			options.Begin(rect);
-			options.TextFieldNumericLabeledAligned("SM_MechWork.MaxPriority".Translate(), ref maxPriority, ref _maxPriorityBuffer, 4, 9);
+			//options.TextFieldNumericLabeledAligned("SM_MechWork.MaxPriority".Translate(), ref maxPriority, ref _maxPriorityBuffer, 4, 9);
 
 			options.CheckboxLabeled("SM_MechWork.ShowGroupInfo".Translate(), ref showGroupInfo, "SM_MechWork.ShowGroupInfoTip".Translate());
 
@@ -34,6 +34,7 @@ namespace MechTab.Source
 
 		public override void ExposeData()
 		{
+			base.ExposeData();
 			Scribe_Values.Look(ref maxPriority, "MaxPriority", 4);
 			Scribe_Values.Look(ref showGroupInfo, "ShowGroupInfo", false);
 		}

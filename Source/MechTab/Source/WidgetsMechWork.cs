@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace RimWorld
+namespace SM_MechTab
 {
 	// Note: This code is based off of the code in WidgetsWork within Rimworld itself
 	[StaticConstructorOnStartup]

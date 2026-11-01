@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
-namespace SpaceMoth
+namespace SM_MechTab
 {
 	// Note: This code is based off of the code in SM_PawnTable_MechsWorkSlim within Rimworld itself
 	public class SM_PawnTable_MechsWorkSlim : PawnTable

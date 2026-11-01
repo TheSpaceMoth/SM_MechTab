@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedRecuperate"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedRecuperate"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedRecuperate"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedTreatment"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedTreatment"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedTreatment"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedEmergencyTreatment"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedEmergencyTreatment"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "PatientGoToBedEmergencyTreatment"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "ChatWithPrisoner"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "ChatWithPrisoner"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "ChatWithPrisoner"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "Milk"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "Milk"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "Milk"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "Shear"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "Shear"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "Shear"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "Tame"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "Tame"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "Tame"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "Train"]/canBeDoneByMechs</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/WorkGiverDef[defName = "Train"]/canBeDoneByMechs</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/WorkGiverDef[defName = "Train"]</xpath>
+			<value>
+				<canBeDoneByMechs>false</canBeDoneByMechs>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "EnterGeneExtractor"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/WorkGiverDef[defName = "EnterGeneExtractor"]/canBeDoneByMechs</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/WorkGiverDef[defName = "EnterGeneExtractor"]/canBeDoneByMechs</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/WorkGiverDef[defName = "EnterGeneExtractor"]</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</nomatch>	
+		</match>
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "EnterGrowthVat"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/WorkGiverDef[defName = "EnterGrowthVat"]/canBeDoneByMechs</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/WorkGiverDef[defName = "EnterGrowthVat"]/canBeDoneByMechs</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/WorkGiverDef[defName = "EnterGrowthVat"]</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</nomatch>	
+		</match>
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "ChildcarerTeach"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/WorkGiverDef[defName = "ChildcarerTeach"]/canBeDoneByMechs</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/WorkGiverDef[defName = "ChildcarerTeach"]/canBeDoneByMechs</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/WorkGiverDef[defName = "ChildcarerTeach"]</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</nomatch>	
+		</match>
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "ActivitySuppression"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/WorkGiverDef[defName = "ActivitySuppression"]/canBeDoneByMechs</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/WorkGiverDef[defName = "ActivitySuppression"]/canBeDoneByMechs</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/WorkGiverDef[defName = "ActivitySuppression"]</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</nomatch>	
+		</match>
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "InterrogatePrisoner"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/WorkGiverDef[defName = "InterrogatePrisoner"]/canBeDoneByMechs</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/WorkGiverDef[defName = "InterrogatePrisoner"]/canBeDoneByMechs</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/WorkGiverDef[defName = "InterrogatePrisoner"]</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</nomatch>	
+		</match>
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/WorkGiverDef[defName = "ConvertPrisoner"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/WorkGiverDef[defName = "ConvertPrisoner"]/canBeDoneByMechs</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/WorkGiverDef[defName = "ConvertPrisoner"]/canBeDoneByMechs</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/WorkGiverDef[defName = "ConvertPrisoner"]</xpath>
+				<value>
+					<canBeDoneByMechs>false</canBeDoneByMechs>		
+				</value>
+			</nomatch>	
+		</match>
+	</Operation>
+	
+</Patch>

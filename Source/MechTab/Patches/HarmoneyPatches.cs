@@ -1,10 +1,9 @@
 ﻿using System.Reflection;
 using System.Runtime;
 using HarmonyLib;
-using MechTab.Source;
 using Verse;
 
-namespace SpaceMoth
+namespace SM_MechTab
 {
 	[StaticConstructorOnStartup]
 	static public class HarmonyPatches
@@ -13,7 +12,6 @@ namespace SpaceMoth
 		
 		static HarmonyPatches()
 		{
-
 			harmonyInstance = new Harmony("SpaceMoth.MechTab");
 			harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
 		}

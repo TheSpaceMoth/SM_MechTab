@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace SpaceMoth
+namespace SM_MechTab
 {
 	// Note: This code is based off of the code in MainButtonWorker_ToggleTab within Rimworld itself
 	public class SM_MainButtonWorker_ToggleMechWorkTab : MainButtonWorker_ToggleTab

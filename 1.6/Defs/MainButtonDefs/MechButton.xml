@@ -5,8 +5,8 @@
     <defName>SM_MechWork</defName>
     <label>mech work</label>
     <description>View and organize the work prioraties of the colony's mechanoids.</description>
-    <workerClass>SpaceMoth.SM_MainButtonWorker_ToggleMechWorkTab</workerClass>
-    <tabWindowClass>SpaceMoth.SM_MainTabWindow_MechsWork</tabWindowClass>
+    <workerClass>SM_MechTab.SM_MainButtonWorker_ToggleMechWorkTab</workerClass>
+    <tabWindowClass>SM_MechTab.SM_MainTabWindow_MechsWork</tabWindowClass>
     <order>46</order>
     <closesWorldView>true</closesWorldView>
   </MainButtonDef>

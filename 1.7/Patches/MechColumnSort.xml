@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/PawnColumnDef[defName = "Overseer"]/sortable</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/PawnColumnDef[defName = "Overseer"]/sortable</xpath>
+			<value>
+				<sortable>true</sortable>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/PawnColumnDef[defName = "Overseer"]</xpath>
+			<value>
+				<sortable>true</sortable>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/PawnColumnDef[defName = "Overseer"]/workerClass</xpath>
+		<value>
+			<workerClass>SM_MechTab.SM_PawnColumnWorker_Overseer_Sortable</workerClass>		
+		</value>
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/PawnColumnDef[defName = "WorkMode"]/sortable</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/PawnColumnDef[defName = "WorkMode"]/sortable</xpath>
+			<value>
+				<sortable>true</sortable>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/PawnColumnDef[defName = "WorkMode"]</xpath>
+			<value>
+				<sortable>true</sortable>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/PawnColumnDef[defName = "WorkMode"]/workerClass</xpath>
+		<value>
+			<workerClass>SM_MechTab.SM_PawnColumnWorker_WorkMode_Sortable</workerClass>		
+		</value>
+	</Operation>
+	
+	<Operation  Class="PatchOperationConditional">
+		<xpath>/Defs/PawnColumnDef[defName = "ControlGroup"]/sortable</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/PawnColumnDef[defName = "ControlGroup"]/sortable</xpath>
+			<value>
+				<sortable>true</sortable>		
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/PawnColumnDef[defName = "ControlGroup"]</xpath>
+			<value>
+				<sortable>true</sortable>		
+			</value>
+		</nomatch>	
+	</Operation>
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/PawnColumnDef[defName = "ControlGroup"]/workerClass</xpath>
+		<value>
+			<workerClass>SM_MechTab.SM_PawnColumnWorker_ControlGroup_Sortable</workerClass>		
+		</value>
+	</Operation>
+</Patch>
